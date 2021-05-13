@@ -20,10 +20,9 @@
         <form id="survey-form">
             <div class="form-cabeza">
                 <label id="name-label" for="name">Cantidad de Computadores</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Cantidad" required />
-                <button type="submit" id="submit" class="submit-button">
-                    Calcular
-                </button>
+                <input type="text" name="name" id="cantidad" class="form-control" placeholder="Cantidad" required />
+
+                <input type="button" value="Calcular" onclick="Pluss();s">
             </div>
             <div class="form-group">
                 <h2 id="title" class="text-center">Orden de Compra</h2>
@@ -40,10 +39,32 @@
                 <input type="number" name="valord" id="valordescuento" class="form-control" />
             </div>
             <div class="form-group">
-                <label id="label Total" for="Total">Total</label>
-                <input type="number" name="total" id="total" class="form-control" />
+                <label id="label Total" for="Totalv">Total</label>
+                <input type="number" name="totalcompra" id="total" class="form-control" />
             </div>
+            <script type="text/javascript">
+                function Pluss() {
 
+                    var Number1 = parseInt(document.getElementById('cantidad').value);
+
+
+                    document.getElementById('valorcompra').value = Number1 * 820000;
+                    var Number2 = parseInt(document.getElementById('valorcompra').value);
+                    if (Number2 >= 1640000 & Number2 < 3280000) {
+                        document.getElementById('valordescuento').value = 15;
+                    } else if (Number2 >= 3280000 & Number2 < 6560000) {
+                        document.getElementById('valordescuento').value = 25;
+                    } else if (Number2 >= 6560000 & Number2 < 9840000) {
+                        document.getElementById('valordescuento').value = 35;
+                    } else {
+                        document.getElementById('valordescuento').value = 0;
+                    }
+                    var Number3 = parseInt(document.getElementById('valordescuento').value);
+                    var Number4 = Number2 - (Number2 - (Number2 * (Number3 / 100)))
+                    document.getElementById('total').value = Number4;
+                }
+
+            </script>
 
 
 
